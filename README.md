@@ -17,3 +17,14 @@ yarn appium
 ```
 yarn appium:doctor
 ```
+
+### test
+
+- run appium test
+- activate the device or simulator
+
+```
+yarn appium
+yarn start
+yarn test
+```
