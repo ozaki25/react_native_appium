@@ -15,6 +15,11 @@ beforeAll(async () => {
 });
 
 test('appium renders', async () => {
-  expect(await driver.hasElementByAccessibilityId('testview')).toBe(true);
-  expect(await driver.hasElementByAccessibilityId('notthere')).toBe(false);
+  expect(await driver.hasElementByAccessibilityId('screen1')).toBe(true);
+  await driver.elementByAccessibilityId('screen1').click();
+  expect(await driver.hasElementByAccessibilityId('screen2')).toBe(true);
+  await driver.elementByAccessibilityId('screen2').click();
+  expect(await driver.hasElementByAccessibilityId('screen3')).toBe(true);
+  await driver.elementByAccessibilityId('screen3').click();
+  expect(await driver.hasElementByAccessibilityId('screen1')).toBe(true);
 });
