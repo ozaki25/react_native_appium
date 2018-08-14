@@ -14,12 +14,12 @@ beforeAll(async () => {
   await driver.sleep(2000); // wait for app to load
 });
 
-test('appium renders', async () => {
+test('page navigation test', async () => {
   expect(await driver.hasElementByAccessibilityId('screen1')).toBe(true);
-  await driver.elementByAccessibilityId('screen1').click();
+  await driver.elementByAccessibilityId('sample1').click();
   expect(await driver.hasElementByAccessibilityId('screen2')).toBe(true);
-  await driver.elementByAccessibilityId('screen2').click();
+  await driver.elementByAccessibilityId('sample2').click();
   expect(await driver.hasElementByAccessibilityId('screen3')).toBe(true);
-  await driver.elementByAccessibilityId('screen3').click();
+  await driver.elementByAccessibilityId('sample3').click();
   expect(await driver.hasElementByAccessibilityId('screen1')).toBe(true);
 });

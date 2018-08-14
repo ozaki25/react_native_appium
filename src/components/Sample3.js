@@ -16,7 +16,7 @@ const Sample3 = ({ navigation }) => (
     onPress={() => navigation.navigate('Sample1')}
     accessibilityLabel="screen3"
   >
-    <Text>Sample3</Text>
+    <Text accessibilityLabel="sample3">Sample3</Text>
   </TouchableOpacity>
 );
 
