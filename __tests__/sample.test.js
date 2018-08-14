@@ -6,13 +6,15 @@ const config = {
   platformName: 'Android',
   deviceName: 'Android Emulator',
   app: './android/app/build/outputs/apk/app-debug.apk',
+  unicodeKeyboard: true,
+  resetKeyboard: true,
 };
 const driver = wd.promiseChainRemote('localhost', PORT);
 
 describe('e2e', () => {
   beforeAll(async () => {
     await driver.init(config);
-    await driver.sleep(2000); // wait for app to load
+    await driver.sleep(5000); // wait for app to load
   });
 
   it('page navigation test', async () => {
@@ -26,7 +28,7 @@ describe('e2e', () => {
   });
 
   it('input text test', async () => {
-    const name = 'OZAKI';
+    const name = 'オザキ';
     await driver.elementByAccessibilityId('inputName').type(name);
     const result = await driver.elementByAccessibilityId('name').text();
     expect(result).toBe(name);
