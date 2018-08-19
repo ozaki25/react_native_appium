@@ -21,9 +21,12 @@ describe('e2e', () => {
     beforeAll(setup);
     it('show screen1', async () => {
       expect(await driver.hasElementByAccessibilityId('screen1')).toBe(true);
+      expect(await driver.hasElementByAccessibilityId('Button')).toBe(false);
+      await driver.elementByAccessibilityId('sample1').flick(0, -1500, 1000);
+      expect(await driver.hasElementByAccessibilityId('Button')).toBe(true);
     });
     it('show screen2', async () => {
-      await driver.elementByAccessibilityId('sample1').click();
+      await driver.elementByAccessibilityId('Button').click();
       expect(await driver.hasElementByAccessibilityId('screen2')).toBe(true);
     });
     it('show screen3', async () => {
