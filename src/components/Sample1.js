@@ -1,5 +1,12 @@
 import React from 'react';
-import { StyleSheet, Text, TextInput, TouchableOpacity } from 'react-native';
+import {
+  Button,
+  ScrollView,
+  StyleSheet,
+  Text,
+  TextInput,
+  View,
+} from 'react-native';
 
 const styles = StyleSheet.create({
   container: {
@@ -19,11 +26,7 @@ class Sample1 extends React.Component {
   render() {
     const { navigation } = this.props;
     return (
-      <TouchableOpacity
-        style={styles.container}
-        onPress={() => navigation.navigate('Sample2')}
-        accessibilityLabel="screen1"
-      >
+      <ScrollView style={styles.container} accessibilityLabel="screen1">
         <Text accessibilityLabel="sample1">Sample1</Text>
         <TextInput
           onChangeText={name => this.setState({ name })}
@@ -31,7 +34,13 @@ class Sample1 extends React.Component {
           accessibilityLabel="inputName"
         />
         <Text accessibilityLabel="name">{this.state.name}</Text>
-      </TouchableOpacity>
+        <View style={{ height: 1000 }} />
+        <Button
+          title="ボタン"
+          onPress={() => navigation.navigate('Sample2')}
+          accessibilityLabel="Button"
+        />
+      </ScrollView>
     );
   }
 }
